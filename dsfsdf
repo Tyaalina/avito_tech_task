@@ -1,0 +1,87 @@
+<Row gutter={[16, 16]}>
+  <Col span={24}>
+    <Tabs defaultActiveKey="1" centered>
+      <TabPane tab={<span><FilterOutlined /> Filter</span>} key="1">
+        <Row gutter={[16, 16]}>
+          <Col xs={24} sm={12} md={8} lg={6}>
+            <Select
+              placeholder="Platform"
+              value={selectedPlatform}
+              onChange={(value) => setSelectedPlatform(value)}
+              style={{ width: '100%' }}
+            >
+              <Option value="pc">Персональный компьютер</Option>
+                        <Option value="browser">Браузер</Option>
+                        <Option value="all">Все</Option>
+            </Select>
+          </Col>
+          <Col xs={24} sm={12} md={8} lg={6}>
+            <Select
+              placeholder="Genre"
+              value={selectedGenre}
+              onChange={(value) => setSelectedGenre(value)}
+              style={{ width: '100%' }}
+            >
+              <Option value="mmorpg">ММОРПГ</Option>
+                        <Option value="shooter">Шутер</Option>
+                        <Option value="strategy">Стратегия</Option>
+                        <Option value="moba">МОБА</Option>
+                        <Option value="racing">Гонки</Option>
+                        <Option value="sports">Спорт</Option>
+                        <Option value="social">Социальные</Option>
+                        <Option value="sandbox">Песочница</Option>
+                        <Option value="open-world">Открытый мир</Option>
+                        <Option value="survival">Выживание</Option>
+                        <Option value="pvp">PvP</Option>
+                        <Option value="pve">PvE</Option>
+                        <Option value="pixel">Пиксельные</Option>
+                        <Option value="voxel">Воксельные</Option>
+                        <Option value="zombie">Зомби</Option>
+                        <Option value="turn-based">Пошаговые</Option>
+                        <Option value="first-person">От первого лица</Option>
+                        <Option value="third-person">От третьего лица</Option>
+                        <Option value="top-down">Сверху вниз</Option>
+                        <Option value="tank">Танковые</Option>
+                        <Option value="space">Космос</Option>
+                        <Option value="sailing">Парусные</Option>
+                        <Option value="side-scroller">Side-Scroller</Option> {/* No direct translation */}
+                        <Option value="superhero">Супергерои</Option>
+                        <Option value="permadeath">Постоянная смерть</Option>
+                        <Option value="card">Карточные</Option>
+                        <Option value="battle-royale">Королевская битва</Option>
+                        <Option value="mmo">ММО</Option>
+                        <Option value="mmofps">ММОФПС</Option>
+                        <Option value="mmotps">ММОТПС</Option>
+                        <Option value="3d">3D</Option>
+                        <Option value="2d">2D</Option>
+                        <Option value="anime">Аниме</Option>
+                        <Option value="fantasy">Фэнтези</Option>
+                        <Option value="sci-fi">Научная фантастика</Option>
+                        <Option value="fighting">Файтинг</Option>
+                        <Option value="action-rpg">Экшн RPG</Option>
+                        <Option value="action">Экшн</Option>
+                        <Option value="military">Военные</Option>
+                        <Option value="martial-arts">Боевые искусства</Option>
+                        <Option value="flight">Леталки</Option>
+                        <Option value="low-spec">Слабые системные требования</Option>
+                        <Option value="tower-defense">Защита башни</Option>
+                        <Option value="horror">Хоррор</Option>
+                        <Option value="mmorts">ММОСТ</Option>
+            </Select>
+          </Col>
+        </Row>
+      </TabPane>
+      <TabPane tab={<span><SortAscendingOutlined /> Sort</span>} key="2">
+        <Row gutter={[16, 16]}>
+          <Col xs={24} sm={12} md={8} lg={6}>
+            <Radio.Group value={sortingOption} onChange={(e) => setSortingOption(e.target.value)}>
+              <Radio.Button value="releaseDate">Release Date</Radio.Button>
+              <Radio.Button value="popularity">Popularity</Radio.Button>
+              {/* Add more sorting options if needed */}
+            </Radio.Group>
+          </Col>
+        </Row>
+      </TabPane>
+    </Tabs>
+  </Col>
+</Row>
