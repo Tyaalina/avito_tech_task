@@ -30,7 +30,7 @@ const GameDetails: React.FC = () => {
             }
         };
         if(localStorage.getItem(`gameDetails${id}`)) {
-            setGameDetails(JSON.parse(localStorage.getItem(`gameDetails${id}`)))
+            setGameDetails(JSON.parse(localStorage.getItem(`gameDetails${id}`)!))
             setLoading(false);
         } else {
             fetchData();
