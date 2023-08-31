@@ -16,9 +16,12 @@ const GameDetails: React.FC = () => {
     const [gameDetails, setGameDetails] = useState<any>(null);
 
     useEffect(() => {
+
         const fetchData = async () => {
             try {
                 const details = await fetchGameDetails(id!);
+                localStorage.setItem(`gameDetails${id}`, JSON.stringify(details));
+                setTimeout(function(){localStorage.removeItem(`gameDetails${id}`);}, 5 * 60 * 1000);
                 setGameDetails(details);
                 setLoading(false);
             } catch (error) {
@@ -26,8 +29,12 @@ const GameDetails: React.FC = () => {
                 console.error(error);
             }
         };
-
-        fetchData();
+        if(localStorage.getItem(`gameDetails${id}`)) {
+            setGameDetails(JSON.parse(localStorage.getItem(`gameDetails${id}`)))
+            setLoading(false);
+        } else {
+            fetchData();
+        }
     }, [id]);
 
     const renderScreenshotCarousel = () => {
